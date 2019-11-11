@@ -3,8 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 5000;
 const { Pool } = require("pg");
 const pool = new Pool({
-  connectionString: "der5qq098irbn0", //process.env.DATABASE_URL,
-  user: "postgres",
+  connectionString: process.env.DATABASE_URL,
+  //user: "postgres",
   //password: "password",
   ssl: false
 });
