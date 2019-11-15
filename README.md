@@ -7,6 +7,7 @@ This application supports the [Getting Started with Node on Heroku](https://devc
 
 Make sure you have [Node.js](http://nodejs.org/), [Heroku CLI](https://cli.heroku.com/), [Git](https://git-scm.com/downloads), and [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows) installed.
 To verify you've installed these, run the following on the command prompt. If installed the version number will appear:
+
 ```sh
 $ node --version
 $ npm --version
@@ -58,19 +59,31 @@ $ heroku open
 
 You should see your changes!
 
-## PostgreSQL Local Database
-TODO
-
-
 ## PostgreSQL Cloud Database
 
 [How to Provision a PostgreSQL Database for Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database)
 
-Much of the code mentioned should already exist, but this is a great short tutorial to explain how to create & interact with your remote database.
+This is a great short tutorial that explains how to create & interact with your remote database. (Much of the code mentioned should already exist, but you will need to run the psql commands to create your database.)
+After your database is created, you can find it located here: https://data.heroku.com/
 
 Note: After installing postgres locally you may have to update your PATH environment variable so that commands like `heroku pg:sql` work correctly.
+
 - Find the directory of your Postgres installation (The directory will be similar to this: `C:\Program Files\PostgreSQL\<VERSION>\bin`)
 - Navigate to Control Panel > System and Security > System
-- Follow the steps in the image below and paste in your postgres directory as your environment variable. 
-https://i.imgur.com/NQWwDCC.png
+- Follow the steps in the image below and paste in your postgres directory as your system environment variable.
+  https://imgur.com/a/rGxlBtG
 
+## PostgreSQL Local Database
+
+Heroku has built in commands that let you clone your cloud database onto your local environment.
+
+```sh
+$ heroku pg:pull DATABASE_URL mylocaldb --app sushi #pulls from your cloud database into a new database named mylocaldb from an app named sushi.
+$ heroku pg:push DATABASE_URL mylocaldb --app sushi #pushes database mylocaldb back into the cloud.
+```
+
+Note: When pushing the remote database must be empty. You will be prompted to pg:reset a remote database that is not empty. Read more detailed instructions here:
+[Keeping your local and cloud databases in sync with eachother](https://devcenter.heroku.com/articles/heroku-postgresql#pg-push-and-pg-pull)
+
+The benefit of developing with a local database is that you can make use of pgAdmin4, a GUI for interacting with PostgreSQL databases.
+TODO: Create a PGAdmin guide.
