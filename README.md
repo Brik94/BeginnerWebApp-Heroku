@@ -3,6 +3,8 @@
 A modified barebones Node.js app using [Express 4](http://expressjs.com/).
 This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
+Currently this repo is live at:https://calm-fjord-05457.herokuapp.com/
+
 ## Prerequisites
 
 Make sure you have [Node.js](http://nodejs.org/), [Heroku CLI](https://cli.heroku.com/), [Git](https://git-scm.com/downloads), and [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows) installed.
