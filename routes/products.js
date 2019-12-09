@@ -10,6 +10,7 @@ module.exports = {
 
       //No error. Convert database results to an array.
       var arr = [];
+      console.log(result);
       for (var i = 0; i < result.rows.length; i++) {
         arr.push(result.rows[i]);
       }
