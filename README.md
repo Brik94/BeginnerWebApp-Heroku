@@ -78,8 +78,8 @@ Note: After installing postgres locally you may have to update your PATH environ
 Heroku has built in commands that let you clone your cloud database onto your local environment.
 
 ```sh
-$ heroku pg:pull DATABASE_URL mylocaldb --app sushi #pulls from your cloud database into a new database named mylocaldb from an app named sushi.
-$ heroku pg:push DATABASE_URL mylocaldb --app sushi #pushes database mylocaldb back into the cloud.
+$ heroku pg:pull DATABASE_URL mylocaldb --app calm-fjord-05457 #pulls from your cloud database into a new database named mylocaldb from an app named calm-fjord-05457.
+$ heroku pg:push mylocaldb DATABASE_URL --app calm-fjord-05457 #pushes database mylocaldb back into the cloud.
 ```
 
 Note: When pushing the remote database must be empty. You will be prompted to pg:reset a remote database that is not empty. Read more detailed instructions here:
