@@ -6,8 +6,8 @@ const { Pool } = require("pg");
 
 //Uncomment to use online database.
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
-  //ssl: true
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
 });
 
 //Uncomment to use local database. Update the variables.
@@ -27,7 +27,7 @@ pool.connect(err => {
   }
   console.log("Connected to database");
 });
-global.db = pool;
+global.database = pool;
 
 //configuration
 var app = express();

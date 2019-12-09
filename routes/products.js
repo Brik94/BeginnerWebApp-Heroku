@@ -1,8 +1,14 @@
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
 module.exports = {
   getProductPage: async (req, res) => {
     let query = "SELECT * FROM products;"; // query database to get all the products
 
     // execute query
+    await db.connect();
     await db.query(query, (error, result) => {
       if (error) {
         res.redirect("/"); //if there's an error, redirect to home.
