@@ -1,12 +1,12 @@
 module.exports = {
   getProducts: async (req, res) => {
-    let query = "SELECT * FROM products;"; // query database to get all the products
+    let query = "SELECT * FROM products;";
 
     console.log("Attempting to execute the query.");
-    await db.connect();
-    await db.query(query, (error, result) => {
+    const client = await db.connect();
+    await client.query(query, (error, result) => {
       if (error) {
-        console.log(error);
+        console.log("Error: " + error);
         res.redirect("/"); //if there's an error, redirect to home.
       }
 
@@ -16,11 +16,12 @@ module.exports = {
         arr.push(result.rows[i]);
       }
 
-      console.log("Passing the new array to our product view and render.");
+      console.log("Passing the new array to our product view and rendering.");
       res.render("pages/products.ejs", {
         title: "This is the Product Page!",
         products: arr
       });
+      client.release();
     });
   }
 };

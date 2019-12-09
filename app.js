@@ -44,4 +44,4 @@ app.get("/delete/:id", deleteProduct);
 app.get("/addProduct", addProductPage);
 app.post("/addProduct", addProduct);
 
-app.listen(PORT, () => console.log(`Listening on https://${PORT}`));
+app.listen(PORT, () => console.log(`Listening on https://localhost:${PORT}`));

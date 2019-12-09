@@ -19,12 +19,13 @@ module.exports = {
 
     console.log(insertQuery);
 
-    await db.connect();
-    await db.query(insertQuery, (err, result) => {
+    const client = await db.connect();
+    await client.query(insertQuery, (err, result) => {
       if (err) {
         return res.status(500).send(err);
       }
       res.redirect("products");
+      client.release();
     });
   },
   editProduct: async (req, res) => {
