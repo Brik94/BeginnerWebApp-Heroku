@@ -1,12 +1,12 @@
 // Routing in this file will handle adding, updating, and deleting products.
 
 module.exports = {
-  addProductPage: (req, res) => {
+  addProductPage: async (req, res) => {
     res.render("pages/add.ejs", {
       title: "Add a new product"
     });
   },
-  addProduct: (req, res) => {
+  addProduct: async (req, res) => {
     let productName = req.body.candyName;
     let price = req.body.price;
 
@@ -19,7 +19,7 @@ module.exports = {
 
     console.log(insertQuery);
 
-    db.query(insertQuery, (err, result) => {
+    await db.query(insertQuery, (err, result) => {
       if (err) {
         return res.status(500).send(err);
       }

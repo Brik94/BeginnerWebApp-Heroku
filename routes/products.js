@@ -1,9 +1,9 @@
 module.exports = {
-  getProductPage: (req, res) => {
+  getProductPage: async (req, res) => {
     let query = "SELECT * FROM products;"; // query database to get all the products
 
     // execute query
-    db.query(query, (error, result) => {
+    await db.query(query, (error, result) => {
       if (error) {
         res.redirect("/"); //if there's an error, redirect to home.
       }

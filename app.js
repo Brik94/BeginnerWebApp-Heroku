@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //routes for the web app
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/product", getProductPage);
-app.get("/addProduct", (req, res) => res.render("pages/add"));
+app.get("/addProduct", async (req, res) => res.render("pages/add"));
 app.post("/addProduct", addProduct);
 
 app.listen(PORT, () => console.log(`Listening on https://${PORT}`));
