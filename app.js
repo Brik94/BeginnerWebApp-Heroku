@@ -10,7 +10,7 @@ const pool = new Pool({
   ssl: true
 });
 
-//Uncomment to use local database. Update the variables.
+//Uncomment to use local database. Update the variables with your user/password.
 // const pool = new Pool({
 //   user: "postgres",
 //   host: "localhost",
@@ -18,16 +18,15 @@ const pool = new Pool({
 //   password: "password"
 // });
 
-const { getProductPage } = require("./routes/products");
-const { addProduct } = require("./routes/add");
+global.db = pool;
 
-pool.connect(err => {
-  if (err) {
-    throw err;
-  }
-  console.log("Connected to database");
-});
-global.database = pool;
+const { getProducts } = require("./routes/products");
+const {
+  addProductPage,
+  addProduct,
+  editProduct,
+  deleteProduct
+} = require("./routes/add");
 
 //configuration
 var app = express();
@@ -39,8 +38,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //routes for the web app
 app.get("/", (req, res) => res.render("pages/index"));
-app.get("/product", getProductPage);
-app.get("/addProduct", async (req, res) => res.render("pages/add"));
+app.get("/products", getProducts);
+app.get("/edit/:id", editProduct);
+app.get("/delete/:id", deleteProduct);
+app.get("/addProduct", addProductPage);
 app.post("/addProduct", addProduct);
 
 app.listen(PORT, () => console.log(`Listening on https://${PORT}`));
