@@ -23,7 +23,7 @@ module.exports = {
       }
 
       //Pass the new array to our product view, render.
-      await res.render("pages/products.ejs", {
+      res.render("pages/products.ejs", {
         title: "This is the Product Page!",
         products: arr
       });
