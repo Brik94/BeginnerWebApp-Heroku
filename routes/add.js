@@ -1,5 +1,12 @@
 // Routing in this file will handle adding, updating, and deleting products.
 
+const { Pool } = require("pg");
+
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
 module.exports = {
   addProductPage: async (req, res) => {
     res.render("pages/add.ejs", {
