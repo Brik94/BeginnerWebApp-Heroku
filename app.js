@@ -6,17 +6,10 @@ const { Pool } = require("pg");
 
 //Uncomment to use online database.
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+  connectionString:
+    "postgres://igazckhq:3hnlwrqL7wnkD5TdYeEjopyKYnF3Qc2G@drona.db.elephantsql.com:5432/igazckhq",
+  ssl: false
 });
-
-//Uncomment to use local database. Update the variables with your user/password.
-// const pool = new Pool({
-//   user: "postgres",
-//   host: "localhost",
-//   database: "CandyStore",
-//   password: "password"
-// });
 
 global.db = pool;
 
@@ -44,4 +37,4 @@ app.get("/delete/:id", deleteProduct);
 app.get("/addProduct", addProductPage);
 app.post("/addProduct", addProduct);
 
-app.listen(PORT, () => console.log(`Listening on https://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

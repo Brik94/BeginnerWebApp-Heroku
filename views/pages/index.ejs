@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <% include ../partials/header.ejs %>
   </head>
-
   <body>
     <% include ../partials/nav.ejs %>
-
-    This is the Home Page!
-    Test.
+    <div class="layout-main">
+      <div class="wrapper">
+        <header>
+          <a
+            href="https://www.dottierosefoundation.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/drf-logo.svg" alt="logo" />
+          </a>
+        </header>
+        <div>
+          <p>Welcome to your web app!</p>
+          <a class="nav-link" href="/products">The CandyStore</a>
+        </div>
+      </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/client.js"></script>
   </body>
 </html>
