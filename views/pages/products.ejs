@@ -21,7 +21,8 @@
             <%  products.forEach((product, index) => { %>
                 <tr>
                     <th scope="row"><%= product.productid %></th>
-                    <td><%= product.name %></td>
+                    <td><img class="candyImage" src="<%= product.name %>" alt="logo" /></td> 
+                    <!-- <td><%= product.name %></td> -->
                     <td><%= product.price %></td>
                     <td>
                       <a href="/edit/<%= product.productid %>">Edit</a>
